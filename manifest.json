@@ -1,0 +1,18 @@
+// REGISTRO DE SERVICE WORKER PARA ACTIVAR CARACTERÍSTICAS NATIVAS (PWA)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        // Creamos un Service Worker básico en línea para cumplir el requisito de instalación
+        const swBlob = new Blob([
+            `self.addEventListener('fetch', (event) => {
+                // Deja pasar todas las peticiones en vivo (Firebase, Clima, etc.)
+                event.respondWith(fetch(event.request));
+            });`
+        ], { type: 'application/javascript' });
+        
+        const swUrl = URL.createObjectURL(swBlob);
+        
+        navigator.serviceWorker.register(swUrl)
+            .then(reg => console.log('🚀 Modo App Nativa activado con éxito'))
+            .catch(err => console.error('❌ Error al activar modo Nativo:', err));
+    });
+}

@@ -1,0 +1,28 @@
+{
+  "alertas_viales": [
+    {
+      "entrada_afectada": "loboguerrero",
+      "estado": "restringido",
+      "gravedad": "media",
+      "mensaje": "Paso a un carril por mantenimiento en el Km 12."
+    },
+    {
+      "entrada_afectada": "mediacanoa",
+      "estado": "normal",
+      "gravedad": "baja",
+      "mensaje": "Vía totalmente despejada y con flujo normal."
+    },
+    {
+      "entrada_afectada": "lacecilia",
+      "estado": "critico",
+      "gravedad": "alta",
+      "mensaje": "Cierre total por derrumbe. Use vías alternas."
+    },
+    {
+      "entrada_afectada": "pueblo",
+      "estado": "restringido",
+      "gravedad": "media",
+      "mensaje": "Alto flujo vehicular en el parque principal por evento cultural."
+    }
+  ]
+}

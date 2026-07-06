@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    
+    <link rel="manifest" href="./manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Vive Calima Darién - App Comunitaria Pro</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body { -webkit-tap-highlight-color: transparent; }
+        .no-scrollbar::-scrollbar { display: none; }
+        @keyframes pulse { 0% { transform: scale(0.95); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } 100% { transform: scale(0.95); opacity: 0.5; } }
+        .animate-pulse-custom { animation: pulse 1.5s infinite; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased">
+
+    <!-- TU CONTENIDO HTML SE MANTIENE IGUAL -->
+    <div class="bg-slate-900 text-white divide-y divide-slate-800 shadow-sm sticky top-0 z-50">
+        <div id="contenedor-alertas" class="transition-all">
+            <div id="top-alert-bar" class="bg-emerald-600 text-white px-4 py-2 text-xs text-center font-bold flex justify-center items-center gap-1.5">
+                <i class="fa-solid fa-sync fa-spin text-sky-200"></i>
+                <span id="texto-alerta-superior">Cargando estado...</span>
+            </div>
+        </div>
+        <div class="px-4 py-2 bg-slate-900 flex justify-between items-center text-[11px] text-slate-300 font-medium">
+            <div class="flex gap-3">
+                <span id="clima-temperatura"><i class="fa-solid fa-cloud-sun text-amber-400 mr-1"></i> Calima: --°C</span>
+                <span id="clima-viento"><i class="fa-solid fa-wind text-sky-400 mr-1"></i> Viento: -- nudos</span>
+            </div>
+            <div onclick="verUltimaNotificacion()" class="relative cursor-pointer flex items-center pr-1 p-1 rounded-sm hover:bg-slate-800 transition">
+                <i class="fa-solid fa-bell text-sm text-slate-300"></i>
+                <span id="badge-notif" class="hidden absolute top-1 right-1 bg-red-500 w-2.5 h-2.5 rounded-full border border-slate-900"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ... (El resto de tu estructura HTML original sigue aquí, no la toqué) ... -->
+
+    <!-- CORRECCIÓN DE SCRIPTS AQUÍ -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+    
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyBNxF8SK_-sdQOB3s_dIP-dwtgM7GWiZwI",
+            authDomain: "vive-calima.firebaseapp.com",
+            projectId: "vive-calima",
+            storageBucket: "vive-calima.appspot.com",
+            messagingSenderId: "129800689243",
+            appId: "1:129800689243:web:ead49aa45629195bb8d17e"
+        };
+        firebase.initializeApp(firebaseConfig);
+        // Inicializamos globalmente para app.js
+        window.db = firebase.firestore(); 
+        console.log("Firebase inicializado correctamente");
+    </script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
